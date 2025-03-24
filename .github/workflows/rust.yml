@@ -30,8 +30,8 @@ jobs:
           dbus-x11
     
     - name: Build
-      run: cargo build --verbose --target ${{ matrix.target }}
+      run: cargo build --verbose --target ${{ matrix.os }}
       
     - name: Run tests
-      run: cargo test --verbose --all-features --target ${{ matrix.target }}
+      run: cargo test --verbose --all-features --target ${{ matrix.os }}
 

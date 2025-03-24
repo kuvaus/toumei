@@ -1,5 +1,8 @@
+// build.rs
 fn main() {
-    println!("cargo:rustc-link-lib=objc");
-    println!("cargo:rustc-link-arg=-framework");
-    println!("cargo:rustc-link-arg=Foundation");
+    // Only link Foundation framework on macOS
+    if std::env::var("TARGET").unwrap().contains("apple") {
+        println!("cargo:rustc-link-lib=framework=Foundation");
+        println!("cargo:rustc-link-lib=objc");
+    }
 }

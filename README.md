@@ -30,13 +30,12 @@ cargo add toumei
 You can detect the tray transparency mode by using the `detect_tray_transparency` function. This function returns a `Mode` value.
 ```rust
 fn main() -> Result<(), toumei::Error> {
-    match tomei::detect_tray_transparency()? {
+    match toumei::detect_tray_transparency()? {
         toumei::Mode::Transparent => println!("🎉 System tray transparency is enabled!"),
         toumei::Mode::Opaque => println!("🔒 System tray transparency is disabled"),
     }
     Ok(())
 }
-```
 
 ## License
 

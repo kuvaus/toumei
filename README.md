@@ -36,6 +36,12 @@ fn main() -> Result<(), toumei::Error> {
     }
     Ok(())
 }
+```
+
+
+## Author
+
+**kuvaus**
 
 ## License
 

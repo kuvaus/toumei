@@ -1,6 +1,6 @@
 [package]
 name = "toumei"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2024"
 authors = ["kuvaus <22169537+kuvaus@users.noreply.github.com>"]
 description = "Detects system tray transparency on macOS, Windows, and Linux"
@@ -8,6 +8,9 @@ license = "MIT"
 repository = "https://github.com/kuvaus/toumei"
 keywords = ["tray", "transparency", "system", "gui"]
 categories = ["api-bindings", "gui"]
+
+[dependencies]
+libc = { version = "0.2.171", optional = true }
 
 [target.'cfg(target_os = "macos")'.dependencies]
 objc2 = "0.6.0"
@@ -30,3 +33,19 @@ windows-sys = { version = "0.59.0", features = [
     "Win32_UI_WindowsAndMessaging",
     "Win32_System_Diagnostics_ToolHelp"
 ] }
+
+[build-dependencies]
+cbindgen = { version = "0.28", optional = true }
+
+[lib]
+crate-type = ["rlib", "cdylib"]
+
+[features]
+default = []
+capi = ["libc", "cbindgen"]
+
+[package.metadata.docs.rs]
+features = ["capi"]
+
+
+ 

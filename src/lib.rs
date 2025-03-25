@@ -26,5 +26,9 @@ pub use error::Error;
 pub use mode::Mode;
 pub use platforms::detect_tray_transparency;
 
+#[cfg(feature = "capi")]
+pub mod capi;
+
 #[cfg(test)]
 mod test;
+
